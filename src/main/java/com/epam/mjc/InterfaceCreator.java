@@ -34,7 +34,7 @@ public class InterfaceCreator {
                     z.add(s);
                 }
             }
-            System.out.println(z);
+            System.out.println(x);
         };
     }
 
