@@ -25,18 +25,50 @@ public class InterfaceCreator {
     }
 
     public Consumer<List<Integer>> addEvenValuesAtTheEnd() {
-        throw new UnsupportedOperationException("You should implement this method.");
+              return x -> {
+            List<Integer> z = new ArrayList<>(x);
+            for (Integer s : x) {
+                if (s % 2 == 0){
+                    z.add(s);
+                }
+            }
+            System.out.println(z);
+        };
     }
 
     public Supplier<List<String>> filterCollection(List<String> values) {
-        throw new UnsupportedOperationException("You should implement this method.");
+            return () -> {
+            for (int i = 0; i < values.size(); i++) {
+                String s = values.get(i);
+                System.out.println(s);
+                int count = s.split(" ").length;
+                String cha = s.substring(s.length() - 1);
+                if (!(Character.isUpperCase(s.charAt(0)) && count > 3 && cha.equals("."))) {
+                    values.remove(s);
+                    i--;
+                }
+            }
+            return values;
+        };
     }
 
     public Function<List<String>, Map<String, Integer>> stringSize() {
-        throw new UnsupportedOperationException("You should implement this method.");
+              Map<String,Integer> res = new HashMap<>();
+        return x -> {
+            int con = 0;
+            for (String nRes : x) {
+                con = nRes.length();
+                res.put(nRes, con);
+            }
+            return res;
+        };
     }
 
     public BiFunction<List<Integer>, List<Integer>, List<Integer>> concatList() {
-        throw new UnsupportedOperationException("You should implement this method.");
+              return (list1, list2) -> {
+            List<Integer> sum = new ArrayList<>(list1);
+            sum.addAll(list2);
+            return sum;
+        };
     }
 }
