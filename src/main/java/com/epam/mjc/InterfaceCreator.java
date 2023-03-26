@@ -11,7 +11,17 @@ import java.util.function.Supplier;
 public class InterfaceCreator {
 
     public Predicate<List<String>> isValuesStartWithUpperCase() {
-        throw new UnsupportedOperationException("You should implement this method.");
+              return x -> {
+            boolean b;
+            int a = 0;
+            for (String s : x) {
+                b = s.chars().filter(Character::isUpperCase).count() > 0;
+                if (b){
+                    a++;
+                }
+            }
+            return a == x.size();
+        };
     }
 
     public Consumer<List<Integer>> addEvenValuesAtTheEnd() {
